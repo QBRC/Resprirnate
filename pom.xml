@@ -21,7 +21,7 @@
 		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
 		
 		<hibernate.jpa.version>2.0-cr-1</hibernate.jpa.version>
-		<spring.version>3.0.5.RELEASE</spring.version>
+		<spring.version>2.5.6</spring.version>
 		<jasperreport.version>3.5.3</jasperreport.version>
 	</properties>
 
@@ -38,7 +38,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.8.1</version>
+			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -91,49 +91,22 @@
 
 		<!-- Hibernate framework -->
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.1.0.Final</version>
+			<groupId>hibernate</groupId>
+			<artifactId>hibernate3</artifactId>
+			<version>3.2.3.GA</version>
 		</dependency>
-		<dependency>
-			<groupId>org.hibernate.javax.persistence</groupId>
-			<artifactId>hibernate-jpa-2.0-api</artifactId>
-			<version>1.0.1.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>4.2.0.Final</version>
-			<type>jar</type>
-			<scope>compile</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>javax.xml.bind</groupId>
-					<artifactId>jaxb-api</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.sun.xml.bind</groupId>
-					<artifactId>jaxb-impl</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-
+		
 		<!-- Hibernate annotation -->
 		<dependency>
-			<groupId>org.hibernate</groupId>
+			<groupId>hibernate-annotations</groupId>
 			<artifactId>hibernate-annotations</artifactId>
-			<version>3.5.6-Final</version>
+			<version>3.3.0.GA</version>
 		</dependency>
 
 		<dependency>
-			<groupId>org.hibernate</groupId>
+			<groupId>hibernate-commons-annotations</groupId>
 			<artifactId>hibernate-commons-annotations</artifactId>
-			<version>3.2.0.Final</version>
+			<version>3.0.0.GA</version>
 		</dependency>
 
 		<!-- Hibernate library dependecy start -->
@@ -161,6 +134,37 @@
 			<version>2.7.7</version>
 		</dependency>
 		<!-- Hibernate library dependecy end -->
+		
+		<!--  additional dependencies -->
+		
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>1.0.1.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>3.1.0.GA</version>
+			<type>jar</type>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.xml.bind</groupId>
+					<artifactId>jaxb-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.xml.bind</groupId>
+					<artifactId>jaxb-impl</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
 		
 		<dependency>
 		      <groupId>org.jboss.resteasy</groupId>
