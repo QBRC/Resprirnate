@@ -11,7 +11,7 @@
   <repositories>
     <repository>
       <id>JBoss repository</id>
-      <url>http://repository.jboss.com/maven2/</url>
+      <url>https://maven.nuxeo.org/nexus/content/groups/public/</url>
     </repository>
   </repositories>
   
