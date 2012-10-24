@@ -7,11 +7,14 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name = "stock", catalog = "mkyong", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "STOCK_NAME"),
 		@UniqueConstraint(columnNames = "STOCK_CODE") })
+@XmlRootElement
 public class Stock implements java.io.Serializable {
 
 	private Integer stockId;
