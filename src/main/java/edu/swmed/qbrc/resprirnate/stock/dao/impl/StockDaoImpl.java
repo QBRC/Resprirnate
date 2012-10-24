@@ -1,12 +1,13 @@
-package com.mkyong.stock.dao.impl;
+package edu.swmed.qbrc.resprirnate.stock.dao.impl;
 
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.mkyong.stock.dao.StockDao;
-import com.mkyong.stock.model.Stock;
-import com.mkyong.util.CustomHibernateDaoSupport;
+
+import edu.swmed.qbrc.resprirnate.stock.dao.StockDao;
+import edu.swmed.qbrc.resprirnate.stock.model.Stock;
+import edu.swmed.qbrc.resprirnate.util.CustomHibernateDaoSupport;
 
 @Repository("stockDao")
 public class StockDaoImpl extends CustomHibernateDaoSupport implements StockDao{

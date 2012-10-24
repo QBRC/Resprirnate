@@ -1,11 +1,12 @@
-package com.mkyong.stock.bo.impl;
+package edu.swmed.qbrc.resprirnate.stock.bo.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mkyong.stock.bo.StockBo;
-import com.mkyong.stock.dao.StockDao;
-import com.mkyong.stock.model.Stock;
+
+import edu.swmed.qbrc.resprirnate.stock.bo.StockBo;
+import edu.swmed.qbrc.resprirnate.stock.dao.StockDao;
+import edu.swmed.qbrc.resprirnate.stock.model.Stock;
 
 @Service("stockBo")
 public class StockBoImpl implements StockBo{

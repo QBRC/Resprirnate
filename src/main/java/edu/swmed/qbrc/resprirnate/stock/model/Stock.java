@@ -1,4 +1,4 @@
-package com.mkyong.stock.model;
+package edu.swmed.qbrc.resprirnate.stock.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

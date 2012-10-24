@@ -1,6 +1,6 @@
-package com.mkyong.stock.bo;
+package edu.swmed.qbrc.resprirnate.stock.bo;
 
-import com.mkyong.stock.model.Stock;
+import edu.swmed.qbrc.resprirnate.stock.model.Stock;
 
 public interface StockBo {
 	

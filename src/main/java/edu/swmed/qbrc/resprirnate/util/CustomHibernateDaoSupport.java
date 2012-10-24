@@ -1,4 +1,4 @@
-package com.mkyong.util;
+package edu.swmed.qbrc.resprirnate.util;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

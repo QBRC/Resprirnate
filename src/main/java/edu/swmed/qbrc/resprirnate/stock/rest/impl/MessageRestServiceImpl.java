@@ -1,11 +1,12 @@
-package com.mkyong.stock.rest.impl;
+package edu.swmed.qbrc.resprirnate.stock.rest.impl;
 
 import javax.ws.rs.PathParam;
 
-import com.mkyong.context.SpringApplicationContext;
-import com.mkyong.stock.bo.StockBo;
-import com.mkyong.stock.model.Stock;
-import com.mkyong.stock.rest.MessageRestService;
+
+import edu.swmed.qbrc.resprirnate.context.SpringApplicationContext;
+import edu.swmed.qbrc.resprirnate.stock.bo.StockBo;
+import edu.swmed.qbrc.resprirnate.stock.model.Stock;
+import edu.swmed.qbrc.resprirnate.stock.rest.MessageRestService;
  
 public class MessageRestServiceImpl implements MessageRestService{
  

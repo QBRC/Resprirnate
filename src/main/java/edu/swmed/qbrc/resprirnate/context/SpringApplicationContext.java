@@ -1,4 +1,4 @@
-package com.mkyong.context;
+package edu.swmed.qbrc.resprirnate.context;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

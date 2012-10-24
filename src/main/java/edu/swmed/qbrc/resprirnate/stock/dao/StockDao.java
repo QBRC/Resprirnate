@@ -1,6 +1,6 @@
-package com.mkyong.stock.dao;
+package edu.swmed.qbrc.resprirnate.stock.dao;
 
-import com.mkyong.stock.model.Stock;
+import edu.swmed.qbrc.resprirnate.stock.model.Stock;
 
 public interface StockDao {
 	
