@@ -12,8 +12,8 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	
 	
 	<bean id="stockClient" class="org.jboss.resteasy.client.spring.RestClientProxyFactoryBean">    
-    	<property name="serviceInterface" value="edu.swmed.qbrc.resprirnate.shared.MessageRestService" />
-    	<property name="baseUri" value="http://127.0.0.1:8080/rest/resprirnate-server" />
+    	<property name="serviceInterface" value="edu.swmed.qbrc.resprirnate.shared.rest.MessageRestService" />
+    	<property name="baseUri" value="http://127.0.0.1:8080/resprirnate-server/rest" />
     </bean>
 	
 </beans>
