@@ -13,16 +13,12 @@ public class MessageRestService {
  
 	@GET
 	@Path("/{param}")
-	public Response printMessage(@PathParam("param") String stockCode) {
-		/*ApplicationContext appContext = 
-	    		new ClassPathXmlApplicationContext("spring/config/BeanLocations.xml");*/
-		
+	public Response printMessage(@PathParam("param") String stockCode) {				
     	StockBo stockBo = (StockBo)SpringApplicationContext.getBean("stockBo");
 		
 		String result = "Restful example : " + stockBo.findByStockCode(stockCode).getStockName();
  
-		return Response.status(200).entity(result).build();
- 
+		return Response.status(200).entity(result).build(); 
 	}
  
 }
