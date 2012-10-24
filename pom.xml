@@ -1,15 +1,25 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	
 	<groupId>com.mkyong.common</groupId>
 	<artifactId>SpringExample</artifactId>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<name>SpringExample</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<project.deployment.encoding>UTF-8</project.deployment.encoding>
+
+		<maven-compiler-plugin.version>2.5.1</maven-compiler-plugin.version>
+
+		<maven-compiler-plugin.version>2.5.1</maven-compiler-plugin.version>
+		<maven-war-plugin.version>2.2</maven-war-plugin.version>
+		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
+		
 		<hibernate.jpa.version>2.0-cr-1</hibernate.jpa.version>
 		<spring.version>3.0.5.RELEASE</spring.version>
 		<jasperreport.version>3.5.3</jasperreport.version>
@@ -132,6 +142,82 @@
 			<version>2.7.7</version>
 		</dependency>
 		<!-- Hibernate library dependecy end -->
+		
+		<dependency>
+		      <groupId>org.jboss.resteasy</groupId>
+		      <artifactId>resteasy-jaxrs</artifactId>
+		      <version>2.3.5.Final</version>
+		</dependency>
 
 	</dependencies>
+	<build>
+		<outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
+
+                <resources>
+                        <resource>
+                                <directory>${basedir}/src/main/resources</directory>
+                        </resource>
+                </resources>
+
+                <testResources>
+                        <testResource>
+                                <directory>${basedir}/src/test/resources</directory>
+                        </testResource>
+
+                        <testResource>
+                                <directory>src/test/resources</directory>
+                                <filtering>true</filtering>
+                                <includes>
+                                        <include>integration-test.properties</include>
+                                </includes>
+                        </testResource>
+
+
+                </testResources>
+		
+
+		<plugins>
+			<plugin>
+                           <groupId>org.apache.maven.plugins</groupId>
+			   <artifactId>maven-compiler-plugin</artifactId>
+                           <version>${maven-compiler-plugin.version}</version>
+                           <configuration>
+                                        <source>${target.jdk}</source>
+                                        <target>${target.jdk}</target>
+                                        <encoding>${project.build.sourceEncoding}</encoding>
+                                        <!-- Disable annotation processors during normal compilation -->
+                                        <proc>none</proc>
+                            </configuration>
+                	 </plugin>	
+
+			 <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-war-plugin</artifactId>
+                                <version>${maven-war-plugin.version}</version>
+                                <executions>
+                                        <execution>
+                                                <phase>compile</phase>
+                                                <goals>
+                                                        <goal>exploded</goal>
+                                                </goals>
+                                        </execution>
+                                </executions>
+
+                                <configuration>
+                                        <webappDirectory>${webappDirectory}</webappDirectory>
+                                        <webResources>
+                                                <!--resource>
+                                                        <directory>resourceTemplates/webapp</directory>
+                                                        <filtering>true</filtering>
+                                                        <includes>
+                                                                <include>persistence.xml</include>
+                                                        </includes>
+                                                        <targetPath>WEB-INF/classes/META-INF</targetPath>
+                                                </resource-->
+                                        </webResources>
+                                </configuration>
+                        </plugin>
+		</plugins>
+	</build>
+	
 </project>
