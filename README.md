@@ -1,4 +1,4 @@
-Resprirnator
+Resprirnate
 ============
 
 (RESTEasy + Spring + Hibernate)
