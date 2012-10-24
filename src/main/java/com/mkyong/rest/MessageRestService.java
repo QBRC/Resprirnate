@@ -7,6 +7,7 @@ import javax.ws.rs.core.Response;
 
 import com.mkyong.context.SpringApplicationContext;
 import com.mkyong.stock.bo.StockBo;
+import com.mkyong.stock.model.Stock;
  
 @Path("/stock")
 public class MessageRestService {
@@ -16,7 +17,7 @@ public class MessageRestService {
 	public Response printMessage(@PathParam("param") String stockCode) {				
     	StockBo stockBo = (StockBo)SpringApplicationContext.getBean("stockBo");
 		
-		String result = "Restful example : " + stockBo.findByStockCode(stockCode).getStockName();
+		Stock result = stockBo.findByStockCode(stockCode);
  
 		return Response.status(200).entity(result).build(); 
 	}
