@@ -1,21 +1,14 @@
-package com.mkyong.rest;
+package com.mkyong.stock.rest.impl;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
 
 import com.mkyong.context.SpringApplicationContext;
 import com.mkyong.stock.bo.StockBo;
 import com.mkyong.stock.model.Stock;
+import com.mkyong.stock.rest.MessageRestService;
  
-@Path("/stock")
-
-public class MessageRestService {
+public class MessageRestServiceImpl implements MessageRestService{
  
-	@GET
-	@Path("/{param}")
-	@Produces("application/json")
 	public Stock printMessage(@PathParam("param") String stockCode) {				
     	StockBo stockBo = (StockBo)SpringApplicationContext.getBean("stockBo");
 		
