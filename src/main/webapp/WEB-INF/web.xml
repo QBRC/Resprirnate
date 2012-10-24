@@ -11,6 +11,11 @@
 		<param-value>true</param-value>
 	</context-param>
  
+ <context-param>
+		<param-name>resteasy.resources</param-name>
+		<param-value>com.mkyong.stock.rest.MessageRestService</param-value>
+	</context-param>
+ 
 	<!-- this need same with resteasy servlet url-pattern -->
 	<context-param>
 		<param-name>resteasy.servlet.mapping.prefix</param-name>
@@ -21,6 +26,10 @@
 		<listener-class>
 			org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap
 		</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
  
 	<servlet>
