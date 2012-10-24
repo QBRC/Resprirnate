@@ -1,6 +1,6 @@
 package edu.swmed.qbrc.resprirnate.stock.dao;
 
-import edu.swmed.qbrc.resprirnate.stock.model.Stock;
+import edu.swmed.qbrc.resprirnate.shared.models.Stock;
 
 public interface StockDao {
 	

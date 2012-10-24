@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import edu.swmed.qbrc.resprirnate.shared.models.Stock;
 import edu.swmed.qbrc.resprirnate.stock.bo.StockBo;
 import edu.swmed.qbrc.resprirnate.stock.dao.StockDao;
-import edu.swmed.qbrc.resprirnate.stock.model.Stock;
 
 @Service("stockBo")
 public class StockBoImpl implements StockBo{

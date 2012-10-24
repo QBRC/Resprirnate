@@ -1,4 +1,4 @@
-package edu.swmed.qbrc.resprirnate.stock.model;
+package edu.swmed.qbrc.resprirnate.shared.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
