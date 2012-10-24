@@ -8,6 +8,13 @@
   <name>SpringExample</name>
   <url>http://maven.apache.org</url>
   
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <hibernate.jpa.version>2.0-cr-1</hibernate.jpa.version>
+    <spring.version>3.0.5.RELEASE</spring.version>
+    <jasperreport.version>3.5.3</jasperreport.version>
+  </properties>
+
   <repositories>
     <repository>
       <id>JBoss repository</id>
@@ -21,15 +28,22 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.8.1</version>
       <scope>test</scope>
     </dependency>
     
     <!-- Spring framework -->
 	<dependency>
 		<groupId>org.springframework</groupId>
-		<artifactId>spring</artifactId>
-		<version>2.5.6</version>
+		<artifactId>spring-core</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+
+
+	<dependency> <!--necessary?-->
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context</artifactId>
+		<version>${spring.version}</version>
 	</dependency>
     
     <!-- Spring AOP dependency -->
@@ -47,11 +61,38 @@
 	</dependency>
 	
 	<!-- Hibernate framework -->
-	<dependency>
-		<groupId>hibernate</groupId>
-		<artifactId>hibernate3</artifactId>
-		<version>3.2.3.GA</version>
-	</dependency>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-entitymanager</artifactId>
+        <version>3.6.0.Final</version>
+    </dependency>
+    <dependency>
+        <groupId>org.hibernate.javax.persistence</groupId>
+        <artifactId>hibernate-jpa-2.0-api</artifactId>
+        <version>1.0.0.Final</version>
+    </dependency>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-validator</artifactId>
+        <version>4.1.0.Final</version>
+        <type>jar</type>
+        <scope>compile</scope>
+        <exclusions>
+            <exclusion>
+                <groupId>javax.xml.bind</groupId>
+                <artifactId>jaxb-api</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>com.sun.xml.bind</groupId>
+                <artifactId>jaxb-impl</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-orm</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
 	
 	<!-- Hibernate annotation -->
 	<dependency>
