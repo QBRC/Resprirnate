@@ -1,0 +1,229 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>edu.swmed.qbrc.resprirnate</groupId>
+	<artifactId>server</artifactId>
+	<packaging>war</packaging>
+	<version>1.0.2-SNAPSHOT</version>
+	<name>Resprirnate Server</name>
+	<url>http://maven.apache.org</url>
+
+	<parent>
+		<groupId>edu.swmed.qbrc</groupId>
+		<artifactId>resprirnate</artifactId>
+		<version>1.0.2-SNAPSHOT</version>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<project.deployment.encoding>UTF-8</project.deployment.encoding>
+
+		<maven-compiler-plugin.version>2.5.1</maven-compiler-plugin.version>
+		<maven-war-plugin.version>2.2</maven-war-plugin.version>
+		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
+
+		<hibernate.jpa.version>2.0-cr-1</hibernate.jpa.version>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>${pom.groupId}</groupId>
+			<artifactId>shared</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+		</dependency>
+
+		<!-- JUnit testing framework -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Spring framework -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+
+		<dependency> <!--necessary? -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- Spring AOP dependency -->
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2</version>
+		</dependency>
+
+		<!-- MySQL database driver -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.9</version>
+		</dependency>
+
+		<!-- Hibernate framework -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>3.6.0.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>1.0.0.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.1.0.Final</version>
+			<type>jar</type>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.xml.bind</groupId>
+					<artifactId>jaxb-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.xml.bind</groupId>
+					<artifactId>jaxb-impl</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- Hibernate annotation -->
+
+		<!-- Hibernate library dependecy start -->
+		<dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>antlr</groupId>
+			<artifactId>antlr</artifactId>
+			<version>2.7.7</version>
+		</dependency>
+		<!-- Hibernate library dependecy end -->
+		
+		<dependency>
+		      <groupId>org.jboss.resteasy</groupId>
+		      <artifactId>resteasy-jaxrs</artifactId>
+		      <version>2.3.5.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jettison-provider</artifactId>
+			<version>2.3.5.Final</version>
+		</dependency>	
+		
+
+
+		
+
+	</dependencies>
+	<build>
+		<outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
+
+                <resources>
+                        <resource>
+                                <directory>${basedir}/src/main/resources</directory>
+                        </resource>
+                </resources>
+
+                <testResources>
+                        <testResource>
+                                <directory>${basedir}/src/test/resources</directory>
+                        </testResource>
+
+                        <testResource>
+                                <directory>src/test/resources</directory>
+                                <filtering>true</filtering>
+                                <includes>
+                                        <include>integration-test.properties</include>
+                                </includes>
+                        </testResource>
+
+
+                </testResources>
+		
+
+		<plugins>
+			<plugin>
+                           <groupId>org.apache.maven.plugins</groupId>
+			   <artifactId>maven-compiler-plugin</artifactId>
+                           <version>${maven-compiler-plugin.version}</version>
+                           <configuration>
+                                        <source>${target.jdk}</source>
+                                        <target>${target.jdk}</target>
+                                        <encoding>${project.build.sourceEncoding}</encoding>
+                                        <!-- Disable annotation processors during normal compilation -->
+                                        <proc>none</proc>
+                            </configuration>
+                	 </plugin>	
+
+			 <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-war-plugin</artifactId>
+                                <version>${maven-war-plugin.version}</version>
+                                <executions>
+                                        <execution>
+                                                <phase>compile</phase>
+                                                <goals>
+                                                        <goal>exploded</goal>
+                                                </goals>
+                                        </execution>
+                                </executions>
+
+                                <configuration>
+                                        <webappDirectory>${webappDirectory}</webappDirectory>
+                                        <webResources>
+                                                <!--resource>
+                                                        <directory>resourceTemplates/webapp</directory>
+                                                        <filtering>true</filtering>
+                                                        <includes>
+                                                                <include>persistence.xml</include>
+                                                        </includes>
+                                                        <targetPath>WEB-INF/classes/META-INF</targetPath>
+                                                </resource-->
+                                        </webResources>
+                                </configuration>
+                        </plugin>
+		</plugins>
+	</build>
+	
+</project>
