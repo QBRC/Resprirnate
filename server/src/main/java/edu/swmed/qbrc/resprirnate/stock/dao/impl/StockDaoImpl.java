@@ -2,8 +2,9 @@ package edu.swmed.qbrc.resprirnate.stock.dao.impl;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
+import javax.persistence.NoResultException;
 
+import org.springframework.stereotype.Repository;
 
 import edu.swmed.qbrc.resprirnate.shared.models.Stock;
 import edu.swmed.qbrc.resprirnate.stock.dao.StockDao;
@@ -26,6 +27,10 @@ public class StockDaoImpl extends CustomHibernateDaoSupport implements StockDao{
 	
 	public Stock findByStockCode(String stockCode){
 		List list = getHibernateTemplate().find("from Stock where stockCode=?",stockCode);
+		if (list.size() == 0){
+			throw new NoResultException();
+		}
+				
 		return (Stock)list.get(0);
 	}
 
