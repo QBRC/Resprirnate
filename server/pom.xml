@@ -151,7 +151,12 @@
 			<version>2.3.5.Final</version>
 		</dependency>	
 		
-
+		<dependency>
+                        <groupId>org.jboss.resteasy</groupId>
+                        <artifactId>resteasy-spring</artifactId>
+                        <version>2.3.5.Final</version>
+                </dependency>
+		
 
 		
 

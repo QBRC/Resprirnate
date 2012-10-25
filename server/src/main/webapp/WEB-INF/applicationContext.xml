@@ -15,6 +15,4 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 		base-package="edu.swmed.qbrc.resprirnate" />
 	
 	
-	<bean class="edu.swmed.qbrc.resprirnate.context.SpringApplicationContext"></bean>
-	
 </beans>

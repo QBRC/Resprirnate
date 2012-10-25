@@ -8,12 +8,11 @@ import javax.ws.rs.Produces;
 import edu.swmed.qbrc.resprirnate.shared.models.Stock;
  
 @Path("/stock")
-
 public interface MessageRestService {
  
 	@GET
 	@Path("/{param}")
 	@Produces("application/json")
-	public Stock printMessage(@PathParam("param") String stockCode);
+	public Stock get(@PathParam("param") String stockCode);
  
 }
