@@ -17,7 +17,7 @@ public class App {
 		
 		messageRestService = (MessageRestService)appContext.getBean("stockClient");
 		
-		Stock stock = messageRestService.printMessage("7668");
+		Stock stock = messageRestService.get("7668");
 		System.out.println(stock);
 	}
 
