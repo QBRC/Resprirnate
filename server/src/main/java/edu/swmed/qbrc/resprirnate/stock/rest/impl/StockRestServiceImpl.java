@@ -10,7 +10,7 @@ import edu.swmed.qbrc.resprirnate.shared.rest.MessageRestService;
 import edu.swmed.qbrc.resprirnate.stock.bo.StockBo;
  
 @Component
-public class MessageRestServiceImpl implements MessageRestService{
+public class StockRestServiceImpl implements MessageRestService{
  
 	@Autowired
 	StockBo stockBo;

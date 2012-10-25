@@ -1,38 +1,59 @@
 package com.mkyong.common;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import javax.persistence.NoResultException;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
+import static org.junit.Assert.assertEquals;
+import static org.mockito.BDDMockito.*;
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
+import org.jboss.resteasy.spi.BadRequestException;
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+import edu.swmed.qbrc.resprirnate.shared.models.Stock;
+import edu.swmed.qbrc.resprirnate.stock.bo.StockBo;
+import edu.swmed.qbrc.resprirnate.stock.rest.impl.StockRestServiceImpl;
+
+
+public class AppTest{
+   
+	@InjectMocks
+	private StockRestServiceImpl stockRestServiceImpl;
+    
+	
+	@Mock
+    private StockBo stockBo;
+            
+    @Before
+    public void init(){
+    	MockitoAnnotations.initMocks(this);
+    
     }
+    
+    
+    @Test
+    public void validStock(){
+    	// Given
+    	Stock s = new Stock("1", "ABCD");
+    	given(stockBo.findByStockCode(any(String.class))).willReturn(s);
+    	
+    	// When
+    	Stock returned = stockRestServiceImpl.get("1");	
+    	
+    	//Then
+    	assertEquals(s, returned);
+    }
+    
+    @Test(expected = BadRequestException.class)
+    public void invalidStock(){
+    	// Given
+    	given(stockBo.findByStockCode(any(String.class))).willThrow(NoResultException.class);
+    	
+    	// When
+    	stockRestServiceImpl.get("1");	
+    	    	
+    }
+    
 }
