@@ -1,7 +1,9 @@
 package edu.swmed.qbrc.resprirnate.stock.rest.impl;
 
+import javax.persistence.NoResultException;
 import javax.ws.rs.PathParam;
 
+import org.jboss.resteasy.spi.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,9 +19,12 @@ public class StockRestServiceImpl implements MessageRestService{
 	
 	public Stock get(@PathParam("param") String stockCode) {				
     			
-		Stock result = stockBo.findByStockCode(stockCode);
- 
-		return result; 
+		try{
+			Stock result = stockBo.findByStockCode(stockCode);
+			return result;
+		} catch(NoResultException e){
+			throw new BadRequestException("Invalid stock code provided -- no such stock.");
+		} 
 	}
  
 }
