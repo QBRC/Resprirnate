@@ -40,4 +40,8 @@ This module depends on the `Shared` module and implements the server-side code n
 
 This module offers no new functionality and likely would be excluded from any forks of this project deployed in production, but merely provides an example of how to use the web service "remotely" from a Spring-enabled Java client. Note that the default deployment URL in `applicationContext.xml` expects the web service to be available at `http://127.0.0.1:8080/resprirnate-server/rest` which may not be the default for your IDE/Servlet container.
 
+Authentication
+--------------
+
+If you wish to authenticate users to your Resprirnate-based service, be sure to check out CasHmac at https://github.com/QBRC/CasHmac/.  CasHmac is a library that provides both client and server support for CAS and HMAC authentication for RESTEasy RESTful Web services.
 
